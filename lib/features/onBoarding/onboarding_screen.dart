@@ -16,7 +16,7 @@ class OnboardingScreen extends StatelessWidget {
           child: Padding(
             padding: EdgeInsets.only(
               top: 30.h,
-              bottom: 20.h,
+              bottom: 30.h,
             ),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
