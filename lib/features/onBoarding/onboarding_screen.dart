@@ -19,7 +19,7 @@ class OnboardingScreen extends StatelessWidget {
               bottom: 30.h,
             ),
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.end,
+              mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 const Doclogoandname(),
