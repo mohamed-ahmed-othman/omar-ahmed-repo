@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:oop/core/routing/routes.dart';
 import 'package:oop/features/login/ui/screens/login_screen.dart';
-import 'package:oop/features/onBoarding/onboarding_screen.dart';
+import 'package:oop/features/onBoarding/ui/onboarding_screen.dart';
 
 class AppRouter {
   Route<dynamic> generateRoute(RouteSettings settings) {
