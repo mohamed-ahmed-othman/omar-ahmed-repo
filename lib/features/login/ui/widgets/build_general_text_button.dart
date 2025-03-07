@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:oop/core/theming/colors_manager.dart';
-import 'package:oop/core/theming/styles.dart';
 
 class BuildGeneralTextButton extends StatelessWidget {
   final String buttonText;
