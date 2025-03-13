@@ -16,25 +16,31 @@ class BuildGeneralTextFormField extends StatelessWidget {
   final bool? isDense;
   final OutlineInputBorder? enabledBorder;
   final OutlineInputBorder? focusedBorder;
+  final TextEditingController? controller;
+  final Function(String?) validator;
 
-  const BuildGeneralTextFormField(
-      {super.key,
-      this.contentPadding,
-      this.decoration,
-      this.style,
-      this.isobscureText,
-      required this.hintText,
-      this.hintStyle,
-      this.inputTextStyle,
-      this.suffixIcon,
-      this.labelText,
-      this.isDense,
-      this.enabledBorder,
-      this.focusedBorder});
+  const BuildGeneralTextFormField({
+    super.key,
+    this.contentPadding,
+    this.decoration,
+    this.style,
+    this.isobscureText,
+    required this.hintText,
+    this.hintStyle,
+    this.inputTextStyle,
+    this.suffixIcon,
+    this.labelText,
+    this.isDense,
+    this.enabledBorder,
+    this.focusedBorder,
+    this.controller,
+    required this.validator,
+  });
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      controller: controller,
       obscureText: isobscureText ?? false,
       decoration: decoration ??
           InputDecoration(
@@ -59,8 +65,19 @@ class BuildGeneralTextFormField extends StatelessWidget {
                   borderSide: const BorderSide(
                       color: ColorsManager.mainBlue, width: 1.3),
                 ),
+            focusedErrorBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(16),
+              borderSide: const BorderSide(color: Colors.red, width: 1.3),
+            ),
+            errorBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(16),
+              borderSide: const BorderSide(color: Colors.red, width: 1.3),
+            ),
           ),
       style: style ?? TextStyles.font14grayregular,
+      validator: (value) {
+        return validator(value);
+      },
     );
   }
 }
