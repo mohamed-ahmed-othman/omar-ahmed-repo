@@ -18,13 +18,34 @@ part 'api_error_model.g.dart';
 
 @JsonSerializable()
 class ApiErrorModel {
-  final int? code;
   final String? message;
-  final Map<String, List<String>>? data;
+  final int? code;
 
-  ApiErrorModel({this.code, this.message, this.data});
+  ApiErrorModel({
+    required this.message,
+    this.code,
+  });
 
   factory ApiErrorModel.fromJson(Map<String, dynamic> json) =>
       _$ApiErrorModelFromJson(json);
+
   Map<String, dynamic> toJson() => _$ApiErrorModelToJson(this);
+}
+
+class ApiErrors {
+  static const String badRequestError = "badRequestError";
+  static const String noContent = "noContent";
+  static const String forbiddenError = "forbiddenError";
+  static const String unauthorizedError = "unauthorizedError";
+  static const String notFoundError = "notFoundError";
+  static const String conflictError = "conflictError";
+  static const String internalServerError = "internalServerError";
+  static const String unknownError = "unknownError";
+  static const String timeoutError = "timeoutError";
+  static const String defaultError = "defaultError";
+  static const String cacheError = "cacheError";
+  static const String noInternetError = "noInternetError";
+  static const String loadingMessage = "loading_message";
+  static const String retryAgainMessage = "retry_again_message";
+  static const String ok = "Ok";
 }
