@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:oop/core/helpers/app_regex.dart';
 import 'package:oop/core/helpers/spaces.dart';
-import 'package:oop/features/login/ui/widgets/password_validations.dart';
+import 'package:oop/core/widgets/password_validations.dart';
 
 import '../../logic/cubit/login_cubit.dart';
-import 'build_general_text_form_field.dart';
+import '../../../../core/widgets/build_general_text_form_field.dart';
 
 class EmailAndPassword extends StatefulWidget {
   const EmailAndPassword({super.key});

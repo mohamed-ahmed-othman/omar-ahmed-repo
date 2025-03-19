@@ -14,8 +14,18 @@ class LoginRepo {
       final response = await _apiService.login(loginRequestBody);
       return ApiResult.success(response);
     } catch (error) {
-      return ApiResult.failure(
-          ApiErrorHandler().handle(error) as ApiErrorHandler);
+      return ApiResult.failure(ErrorHandler.handle(error));
     }
   }
+
+  // Future<ApiResult<SignUpResponseBody>> singUp(
+  //     SignUpRequestBody signUpRequestBody) async {
+  //   try {
+  //     final response = await _apiService.signUp(signUpRequestBody);
+  //     return ApiResult.success(response);
+  //   } catch (error) {
+  //     return ApiResult.failure(
+  //         ApiErrorHandler().handle(error) as ApiErrorHandler);
+  //   }
+  // }
 }

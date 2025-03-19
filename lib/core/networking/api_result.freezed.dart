@@ -19,19 +19,19 @@ mixin _$ApiResult<T> {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(T data) success,
-    required TResult Function(ApiErrorHandler apiErrorHandler) failure,
+    required TResult Function(ErrorHandler apiErrorHandler) failure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(T data)? success,
-    TResult? Function(ApiErrorHandler apiErrorHandler)? failure,
+    TResult? Function(ErrorHandler apiErrorHandler)? failure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(T data)? success,
-    TResult Function(ApiErrorHandler apiErrorHandler)? failure,
+    TResult Function(ErrorHandler apiErrorHandler)? failure,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -147,7 +147,7 @@ class _$SuccessImpl<T> implements Success<T> {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(T data) success,
-    required TResult Function(ApiErrorHandler apiErrorHandler) failure,
+    required TResult Function(ErrorHandler apiErrorHandler) failure,
   }) {
     return success(data);
   }
@@ -156,7 +156,7 @@ class _$SuccessImpl<T> implements Success<T> {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(T data)? success,
-    TResult? Function(ApiErrorHandler apiErrorHandler)? failure,
+    TResult? Function(ErrorHandler apiErrorHandler)? failure,
   }) {
     return success?.call(data);
   }
@@ -165,7 +165,7 @@ class _$SuccessImpl<T> implements Success<T> {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(T data)? success,
-    TResult Function(ApiErrorHandler apiErrorHandler)? failure,
+    TResult Function(ErrorHandler apiErrorHandler)? failure,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -224,7 +224,7 @@ abstract class _$$FailureImplCopyWith<T, $Res> {
           _$FailureImpl<T> value, $Res Function(_$FailureImpl<T>) then) =
       __$$FailureImplCopyWithImpl<T, $Res>;
   @useResult
-  $Res call({ApiErrorHandler apiErrorHandler});
+  $Res call({ErrorHandler apiErrorHandler});
 }
 
 /// @nodoc
@@ -246,7 +246,7 @@ class __$$FailureImplCopyWithImpl<T, $Res>
       null == apiErrorHandler
           ? _value.apiErrorHandler
           : apiErrorHandler // ignore: cast_nullable_to_non_nullable
-              as ApiErrorHandler,
+              as ErrorHandler,
     ));
   }
 }
@@ -257,7 +257,7 @@ class _$FailureImpl<T> implements Failure<T> {
   const _$FailureImpl(this.apiErrorHandler);
 
   @override
-  final ApiErrorHandler apiErrorHandler;
+  final ErrorHandler apiErrorHandler;
 
   @override
   String toString() {
@@ -288,7 +288,7 @@ class _$FailureImpl<T> implements Failure<T> {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(T data) success,
-    required TResult Function(ApiErrorHandler apiErrorHandler) failure,
+    required TResult Function(ErrorHandler apiErrorHandler) failure,
   }) {
     return failure(apiErrorHandler);
   }
@@ -297,7 +297,7 @@ class _$FailureImpl<T> implements Failure<T> {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(T data)? success,
-    TResult? Function(ApiErrorHandler apiErrorHandler)? failure,
+    TResult? Function(ErrorHandler apiErrorHandler)? failure,
   }) {
     return failure?.call(apiErrorHandler);
   }
@@ -306,7 +306,7 @@ class _$FailureImpl<T> implements Failure<T> {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(T data)? success,
-    TResult Function(ApiErrorHandler apiErrorHandler)? failure,
+    TResult Function(ErrorHandler apiErrorHandler)? failure,
     required TResult orElse(),
   }) {
     if (failure != null) {
@@ -348,10 +348,9 @@ class _$FailureImpl<T> implements Failure<T> {
 }
 
 abstract class Failure<T> implements ApiResult<T> {
-  const factory Failure(final ApiErrorHandler apiErrorHandler) =
-      _$FailureImpl<T>;
+  const factory Failure(final ErrorHandler apiErrorHandler) = _$FailureImpl<T>;
 
-  ApiErrorHandler get apiErrorHandler;
+  ErrorHandler get apiErrorHandler;
 
   /// Create a copy of ApiResult
   /// with the given fields replaced by the non-null parameter values.
